@@ -12,14 +12,13 @@ export const defaultMessage = () => {
   let firstNSFW = true;
   return new Discord.MessageEmbed()
     .setColor("#A1C9F7")
-    .attachFiles(["./img/rem.jpg"])
+    .attachFiles(["./img/elpajas.jpg"])
     .setAuthor(
-      "Waifu Images Bot",
-      "https://ik.imagekit.io/6xhf1gnexgdgk/rem-avatar_UW2Fsd4Zo.png"
-    )
+      "EL PAJAS")
     .addField(
-      "Available commands:",
-      `${categories
+      "Available commands: ",
+      `?sendpackage
+      ${categories
         .map((category) => {
           categoryReturn = `?${category.command}`;
 
@@ -46,11 +45,9 @@ export const waifuMessage = (url, name) => {
     .attachFiles([url])
     .setThumbnail(url)
     .setAuthor(
-      "Waifu Images Bot",
-      "https://ik.imagekit.io/6xhf1gnexgdgk/rem-avatar_UW2Fsd4Zo.png"
-    )
+      "EL PAJAS"  )
     .setTitle(capitalize(name))
-    .addField(`What did you think of this waifu?`, `Add your reactions below!`);
+    .addField(`IMAGE ? out of ?+ SENT`, `NEXT ONE TO BE DELIVERED WITH THE NEXT COMMAND`);
 };
 
 export const nsfwBlockMessage = () => {
@@ -58,9 +55,7 @@ export const nsfwBlockMessage = () => {
     .setColor("#EF4444")
     .attachFiles(["./img/kimochiwarui.jpg"])
     .setAuthor(
-      "Waifu Images Bot",
-      "https://ik.imagekit.io/6xhf1gnexgdgk/rem-avatar_UW2Fsd4Zo.png"
-    )
+      "El pajas")
     .addField(
       `You're not allowed to use NSFW commands in this channel  ${emojis.sad}`,
       `This channel is SFW`
@@ -72,8 +67,7 @@ export const errorMessage = () => {
     .setColor("#EF4444")
     .attachFiles(["./img/sad.gif"])
     .setAuthor(
-      "Waifu Images Bot",
-      "https://ik.imagekit.io/6xhf1gnexgdgk/rem-avatar_UW2Fsd4Zo.png"
+      "El pajas",
     )
     .addField(
       `Something went wrong with your command  ${emojis.sad}`,

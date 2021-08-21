@@ -45,39 +45,58 @@ client.on("message", async (message) => {
       return message.channel.send(defaultMessage());
     }
 
+    if(command === "sendpackage"){
+      categories.forEach(e => {
+
+      callApiWaifu(message, e)
+      });
+      return
+    }
+
     const categoryObject = categories.find((it) => it.command === command);
 
     if (!categoryObject) return;
+    
+    callApiWaifu(message, categoryObject)
 
-
-
-    const type = categoryObject.sfw ? "sfw" : "nsfw";
-    const category = categoryObject.name;
-
-    if (ImagesCache.hasImages(type, category)) {
-      const url = ImagesCache.getImage(type, category);
-      await sendWaifuMessage(message, url, category);
-      return;
+  }
+    catch (err) {
+      return message.channel.send(errorMessage());
     }
+  });
 
-    const instance = axios.create({
-      baseURL: "https://api.waifu.pics/many",
-      timeout: 1000,
-    });
-    const response = await instance.post(`/${type}/${category}`, {
-      exclude: [],
-    });
-    const data = response?.data;
+async function callApiWaifu(message, categoryObject){
 
-    if (!data || !data.files) return;
 
-    const { files } = data;
-    ImagesCache.setImages(type, category, files);
+  const type = categoryObject.sfw ? "sfw" : "nsfw";
+  const category = categoryObject.name;
+
+
+  if (ImagesCache.hasImages(type, category)) {
     const url = ImagesCache.getImage(type, category);
     await sendWaifuMessage(message, url, category);
-  } catch (err) {
-    return message.channel.send(errorMessage());
+    return;
   }
-});
+
+  const instance = axios.create({
+    baseURL: "https://api.waifu.pics/many",
+    timeout: 1000,
+  });
+  const response = await instance.post(`/${type}/${category}`, {
+    exclude: [],
+  });
+  const data = response?.data;
+
+  if (!data || !data.files) return;
+
+  const { files } = data;
+  ImagesCache.setImages(type, category, files);
+  const url = ImagesCache.getImage(type, category);
+  await sendWaifuMessage(message, url, category);
+
+
+} 
+
+
 
 client.login(process.env.DISCORD_TOKEN);
