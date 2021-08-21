@@ -1,0 +1,45 @@
+{
+  "name": "waifu-images-bot",
+  "version": "0.2.2",
+  "main": "app.js",
+  "private": false,
+  "repository": "https://github.com/guastallaigor/waifu-images-bot.git",
+  "description": "Discord Bot. Get a random waifu image everytime you type any command",
+  "homepage": "https://github.com/guastallaigor/vue-paycard#readme",
+  "author": "Octa351",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/guastallaigor/waifu-images-bot/issues"
+  },
+  "scripts": {
+    "start": "node ./src/app.js",
+    "prettier": "prettier --check 'src/**/*.js'",
+    "dev": "nodemon ./src/app.js"
+  },
+  "keywords": [
+    "discord",
+    "bot",
+    "discord-bot",
+    "waifu",
+    "waifu-images-bot",
+    "waifu-images",
+    "waifu-image"
+  ],
+  "dependencies": {
+    "axios": "^0.21.1",
+    "discord.js": "^12.5.3",
+    "dotenv": "^9.0.2"
+  },
+  "type": "module",
+  "engines": {
+    "node": ">=12.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.26.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-prettier": "^3.4.0",
+    "nodemon": "^2.0.7",
+    "prettier": "^2.3.0"
+  }
+}
