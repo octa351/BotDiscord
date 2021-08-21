@@ -80,4 +80,4 @@ client.on("message", async (message) => {
   }
 });
 
-client.login("ODc4NDY1Nzc3Njg5MzE3Mzc2.YSBlAg.u7JLAo4gs2dbWQXAhWBTE5DMMAc");
+client.login(process.env.DISCORD_TOKEN);
